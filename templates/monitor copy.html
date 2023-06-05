@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid mt-4">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <a href="#" onclick="window.print()"
+                            class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> cetak </a>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- jam -->
+                        <div class="col-xl-3 col-md-12 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xm font-weight-bold text-primary text-uppercase mb-1">
+                                                <span id="hari">, </span>{{ tanggal }} </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" onload="showTime()"
+                                                id="MyClockDisplay"></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clock fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lebar Badan -->
+                        <div class="col-xl-3 col-md-12 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xm font-weight-bold text-info text-uppercase mb-1">Lebar
+                                                badan
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        {{ lebar }}cm </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: {{ lebar }}%" aria-valuenow="{{ lebar }} cm"
+                                                            aria-valuemin="0" aria-valuemax="200"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-balance-scale fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tinggi badan-->
+                        <div class="col-xl-3 col-md-12 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xm font-weight-bold text-info text-uppercase mb-1">Tinggi
+                                                badan
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        {{ tinggi }}cm </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: {{ tinggi }}%" aria-valuenow="{{ tinggi }} cm"
+                                                            aria-valuemin="0" aria-valuemax="200"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Suhu badan-->
+                        <div class="col-xl-3 col-md-12 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xm font-weight-bold text-info text-uppercase mb-1">Suhu
+                                                badan
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        {{ suhu }} C </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: {{ suhu }}%" aria-valuenow="{{ suhu }} cm"
+                                                            aria-valuemin="0" aria-valuemax="200"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-thermometer-half fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4 pb-5">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">{{ nama }}</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <img src="../static/user" width="200" height="250" class="rounded mx-auto d-block"
+                                        alt="...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- resum-->
+                        <div class="col-xl-8 col-lg-5">
+                            <div class="card shadow mb-4 pb-3">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Resume diri anda</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <!-- nama -->
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xm font-weight-bold text-info text-uppercase mb-1">
+                                                Nama:
+                                            </div>
+                                            <div class="text-xm font-weight-bold text-dark text-uppercase mb-1">
+                                                {{nama}}
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-user fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                    <!-- Lebar -->
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xm font-weight-bold text-danger text-uppercase mb-1">Lebar
+                                                badan
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        {{ lebar }}cm </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-danger" role="progressbar"
+                                                            style="width: {{ lebar }}%" aria-valuenow="{{ lebar }} cm"
+                                                            aria-valuemin="0" aria-valuemax="200"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-balance-scale fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                    <!-- tinggi -->
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xm font-weight-bold text-success text-uppercase mb-1">
+                                                Tinggi
+                                                badan
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        {{ tinggi }}cm </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: {{ tinggi }}%" aria-valuenow="{{ tinggi }} cm"
+                                                            aria-valuemin="0" aria-valuemax="200"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                    <!-- suhu -->
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xm font-weight-bold text-warning text-uppercase mb-1">Suhu
+                                                badan
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        {{ suhu }} C </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: {{ suhu }}%" aria-valuenow="{{ suhu }} cm"
+                                                            aria-valuemin="0" aria-valuemax="200"></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-thermometer-half fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xm font-weight-bold text-info text-uppercase mb-1">Status
+                                                BMI anda badan
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        Baik </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar progress-bar-striped bg-info"
+                                                            role="progressbar" style="width: {{ bmi }}%"
+                                                            aria-valuenow="{{ bmi }}" aria-valuemin="0"
+                                                            aria-valuemax="30"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-podcast fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; BAPAK MUNIR </span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <script>
+        function showTime() {
+
+            var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            var date = new Date();
+            var hsekarang = date.getDay()
+            var hariIni = myDays[hsekarang];
+            document.getElementById('hari').innerHTML = hariIni
+
+
+            var date = new Date();
+            var h = date.getHours(); // 0 - 23
+            var m = date.getMinutes(); // 0 - 59
+            var s = date.getSeconds(); // 0 - 59
+            var session = "AM";
+
+            if (h == 0) {
+                h = 12;
+            }
+
+            if (h > 12) {
+                h = h - 12;
+                session = "PM";
+            }
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            var time = h + ":" + m + ":" + s + " " + session;
+            document.getElementById("MyClockDisplay").innerText = time;
+            document.getElementById("MyClockDisplay").textContent = time;
+
+            setTimeout(showTime, 1000);
+
+        }
+        showTime();
+    </script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../static/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../static/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../static/js/demo/chart-area-demo.js"></script>
+    <script src="../static/js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>

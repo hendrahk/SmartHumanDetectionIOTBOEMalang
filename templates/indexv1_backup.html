@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Smart Human Detection</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .stretch-card>.card {
+            width: 100%;
+            min-width: 100%
+        }
+
+        body {
+            background-color: #f9f9fa
+        }
+
+        .flex {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto
+        }
+
+        @media (max-width:991.98px) {
+            .padding {
+                padding: 1.5rem
+            }
+        }
+
+        @media (max-width:767.98px) {
+            .padding {
+                padding: 1rem
+            }
+        }
+
+        .padding {
+            padding: 5rem
+        }
+
+        .grid-margin,
+        .purchace-popup>div {
+            margin-bottom: 25px;
+        }
+
+        .card {
+            border: 0;
+            border-radius: 2px;
+        }
+
+        .card-weather {
+            background: #e1ecff;
+            background-image: linear-gradient(to left bottom, #d6eef6, #dff0fa, #e7f3fc, #eff6fe, #f6f9ff);
+        }
+
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 0.25rem;
+        }
+
+
+        .card-weather .card-body:first-child {
+            background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1557323760/weather.svg) no-repeat center;
+            background-size: cover;
+        }
+
+        .card .card-body {
+            padding: 1.88rem 1.81rem;
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+
+        .card-weather .weather-date-location {
+            padding: 0 0 38px;
+        }
+
+        .h3,
+        h3 {
+            font-size: 1.56rem;
+        }
+
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+        }
+
+        .text-gray,
+        .card-subtitle,
+        .new-accounts ul.chats li.chat-persons a p.joined-date {
+            color: #969696;
+        }
+
+        p {
+            font-size: 13px;
+        }
+
+        .text-gray,
+        .card-subtitle,
+        .new-accounts ul.chats li.chat-persons a p.joined-date {
+            color: #969696;
+        }
+
+        .card-weather .weather-data {
+            padding: 0 0 4.75rem;
+        }
+
+        .mr-auto,
+        .mx-auto {
+            margin-right: auto !important;
+        }
+
+        .display-3 {
+            font-size: 2.5rem;
+        }
+
+        .card-weather .card-body {
+            background: #ffffff;
+        }
+
+        .card-weather .weakly-weather {
+            background: #ffffff;
+            overflow-x: auto;
+        }
+
+        .card-weather .weakly-weather .weakly-weather-item {
+            flex: 0 0 14.28%;
+            border-right: 1px solid #f2f2f2;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .mb-0,
+        .my-0 {
+            margin-bottom: 0 !important;
+        }
+
+        .card-weather .weakly-weather .weakly-weather-item i {
+            font-size: 1.2rem;
+        }
+    </style>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Begin Page Content -->
+                <div class="container-fluid mt-4">
+
+
+                    <div class="row">
+                        <p class="text-center display-3 mb-0">Smart HD - Smart Human Detection</p>
+                        <div class="page-content page-container" id="page-content">
+                            <div class="padding">
+
+                                <div class="row container d-flex justify-content-center">
+
+                                    <div class="col-lg-8 grid-margin stretch-card">
+                                        <!--weather card-->
+                                        <div class="card card-weather">
+                                            <div class="card-body">
+                                                <div class="weather-date-location">
+                                                    <h1 id="hari" class="display-6"></h1>
+                                                    <p class="text-dark">
+                                                        <span class="text dark display-4 onload="showTime()" id="MyClockDisplay"></span>
+                                                        <h3>Malang, Indonesia</h3>
+                                                    </p>
+                                                </div>
+                                                <div class="weather-data d-flex">
+                                                    <div class="mr-auto">
+                                                        <h4 class="display-3">32
+                                                            <span class="symbol">&deg;</span>C</h4>
+                                                        <p class="display-6">
+                                                            Berawan
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--weather card ends-->
+                                    </div>
+                                    <p class="text-center display-3 mb-0 mt-0">Scan kartu pengenal anda</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <script>
+        var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        var date = new Date();
+        var hsekarang = date.getDay()
+        var hariIni = myDays[hsekarang];
+        document.getElementById('hari').innerHTML = hariIni
+
+        function showTime() {
+            var date = new Date();
+            var hari = date.getDay();
+            var hariIni = hari[myDays];
+            var h = date.getHours(); // 0 - 23
+            var m = date.getMinutes(); // 0 - 59
+            var s = date.getSeconds(); // 0 - 59
+            var session = "AM";
+
+            if (h == 0) {
+                h = 12;
+            }
+
+            if (h > 12) {
+                h = h - 12;
+                session = "PM";
+            }
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            var time = h + ":" + m + " " + session;
+            document.getElementById("MyClockDisplay").innerText = time;
+            document.getElementById("MyClockDisplay").textContent = time;
+
+            setTimeout(showTime, 1000);
+
+        }
+        showTime();
+    </script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../static/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../static/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../static/js/demo/chart-area-demo.js"></script>
+    <script src="../static/js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>
